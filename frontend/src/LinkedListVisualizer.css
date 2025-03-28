@@ -1,0 +1,70 @@
+.linked-list-container {
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .controls {
+    margin-bottom: 15px;
+  }
+  
+  input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  button {
+    margin: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s ease;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .node {
+    background-color: lightblue;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+  }
+  
+  .node.highlight {
+    background-color: yellow;
+  }
+  
+  .node-arrow {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .empty-message {
+    color: gray;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  

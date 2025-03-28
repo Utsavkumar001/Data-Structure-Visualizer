@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linked List Visualizer</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        svg { border: 1px solid black; margin-top: 10px; }
+        button { margin: 5px; padding: 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>Linked List Visualizer</h2>
+    <svg id="visualizer" width="500" height="100"></svg>
+    <br>
+    <button onclick="insertNode()">Insert Node</button>
+    <button onclick="deleteNode()">Delete Node</button>
+    
+    <script>
+        let nodes = [];
+        
+        function insertNode() {
+            let value = Math.floor(Math.random() * 100);
+            nodes.push({ id: value, value });
+            visualize();
+        }
+        
+        function deleteNode() {
+            if (nodes.length > 0) {
+                nodes.shift();
+                visualize();
+            }
+        }
+        
+        function visualize() {
+            let svg = d3.select("#visualizer");
+            svg.selectAll("*").remove();
+            
+            svg.selectAll("circle")
+                .data(nodes)
+                .enter()
+                .append("circle")
+                .attr("cx", (d, i) => 50 + i * 60)
+                .attr("cy", 50)
+                .attr("r", 20)
+                .style("fill", "steelblue");
+            
+            svg.selectAll("text")
+                .data(nodes)
+                .enter()
+                .append("text")
+                .attr("x", (d, i) => 50 + i * 60)
+                .attr("y", 55)
+                .attr("text-anchor", "middle")
+                .style("fill", "white")
+                .text(d => d.value);
+        }
+    </script>
+</body>
+</html>
